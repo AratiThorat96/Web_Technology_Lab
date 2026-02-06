@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanishq | Handcrafted Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #83272d;
+            --gold: #c49a6c;
+            --cream: #fdfaf6;
+            --dark: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header { background: white; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 2000; }
+        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
+        .logo { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--maroon); letter-spacing: 5px; font-weight: bold; text-decoration: none; }
+        
+        .search-bar { flex-grow: 1; max-width: 600px; margin: 0 40px; position: relative; }
+        .search-bar input { width: 100%; padding: 12px 25px; border-radius: 30px; border: 1px solid #ddd; background: #fdfdfd; outline: none; }
+        .search-bar .icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); display: flex; gap: 10px; color: var(--maroon); cursor: pointer; }
+
+        .category-strip { display: flex; justify-content: center; gap: 25px; padding: 12px 0; background: #fff; border-top: 1px solid #eee; }
+        .category-strip a { text-decoration: none; color: #444; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
+        .category-strip a:hover { color: var(--maroon); }
+
+        /* --- HERO VIDEO --- */
+        .hero-video { position: relative; height: 75vh; width: 100%; overflow: hidden; }
+        .hero-video video { width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.2); display:flex; align-items:flex-end; padding: 50px 5%; }
+        .hero-caption { color: white; animation: fadeInUp 1s ease-out; }
+        .hero-caption h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; }
+
+        /* --- NEW DYNAMIC LATEST COLLECTION CAROUSEL --- */
+        .latest-collection-section { padding: 80px 5%; text-align: center; background: var(--cream); perspective: 1000px; }
+        .latest-collection-section h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--maroon); margin-bottom: 10px; }
+        .latest-collection-section p { font-style: italic; color: #777; margin-bottom: 50px; }
+
+        .collection-grid { 
+            display: flex; 
+            gap: 20px; 
+            overflow-x: auto; 
+            padding: 20px 0; 
+            scrollbar-width: none; /* Hide scrollbar */
+            scroll-behavior: smooth;
+        }
+        .collection-grid::-webkit-scrollbar { display: none; }
+
+        .collection-card { 
+            min-width: 280px; 
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(131, 39, 45, 0.15);
+        }
+
+        .card-img-container { height: 350px; overflow: hidden; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .collection-card:hover .card-img-container img { transform: scale(1.1); }
+
+        .card-info { padding: 20px; background: white; border-top: 1px solid #f9f9f9; }
+        .card-info h3 { font-family: 'Cinzel', serif; color: var(--maroon); font-size: 1.2rem; }
+        .card-info span { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Active highlight for the rotating slider */
+        .collection-card.rotating-active { border: 2px solid var(--gold); transform: scale(1.02); }
+
+        /* --- REEL SECTION --- */
+        .reel-section { padding: 60px 5%; background: var(--white); text-align: center; }
+        .reel-container { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
+        .reel-card { min-width: 250px; height: 450px; border-radius: 15px; overflow: hidden; }
+        .reel-card video { width: 100%; height: 100%; object-fit: cover; }
+
+        footer { background: #301012; color: white; padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-nav">
+            <a href="#" class="logo">TANISHQ</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for 'Diamond Rings' or 'Gold Necklace'...">
+                <div class="icons"><span>📷</span> <span>🎤</span></div>
+            </div>
+            <div style="display: flex; gap: 20px; font-size: 1.3rem; color: var(--maroon);">
+                <span>💎</span> <span>📍</span> <span>❤</span> <span>👜</span>
+            </div>
+        </div>
+        <div class="category-strip">
+            <a href="https://www.tanishq.co.in/shop/diamond?lang=en_IN">Diamond</a>
+            <a href="https://www.tanishq.co.in/shop/wedding-gifts?lang=en_IN">Wedding</a>
+            <a href="#">Gold</a>
+            <a href="https://www.tanishq.co.in/shop/earring?lang=en_IN">Earrings</a>
+            <a href="https://www.tanishq.co.in/shop/pendants?lang=en_IN">Pendants</a>
+            <a href="https://www.tanishq.co.in/shop/bracelets?lang=en_IN">Bracelets</a>
+            <a href="https://www.tanishq.co.in/shop/bangles?lang=en_IN">Bangles</a>
+        </div>
+    </header>
+
+    <section class="hero-video">
+        <video autoplay muted loop playsinline>
+            <source src="https://staticimg.tanishq.co.in/videos/ge-dt.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+            <div class="hero-caption">
+                <h1>Season of Style '25</h1>
+                <a href="https://www.tanishq.co.in/season-of-style?lang=en_IN" class="btn-white" style="display:inline-block; margin-top:15px; padding:10px 30px; border:2px solid white; color:white; text-decoration:none; border-radius:30px;">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="latest-collection-section">
+        <h2>Latest Collections</h2>
+        <p>Handpicked brilliance for every occasion</p>
+        
+        <div class="collection-grid" id="collectionGrid">
+            <a href="https://www.tanishq.co.in/shop/earring?lang=en_IN" class="collection-card">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1635767791022-343cb7165ec8?auto=format&fit=crop&q=80&w=500" alt="Earrings">
+                </div>
+                <div class="card-info">
+                    <span>Exquisite Craft</span>
+                    <h3>Earrings</h3>
+                </div>
+            </a>
+
+            <a href="https://www.tanishq.co.in/shop/pendants?lang=en_IN" class="collection-card">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=500" alt="Pendants">
+                </div>
+                <div class="card-info">
+                    <span>Timeless Style</span>
+                    <h3>Pendants</h3>
+                </div>
+            </a>
+
+            <a href="https://www.tanishq.co.in/shop/chains?lang=en_IN" class="collection-card">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1611085583191-a3b1a30a8a3a?auto=format&fit=crop&q=80&w=500" alt="Chains">
+                </div>
+                <div class="card-info">
+                    <span>Everyday Gold</span>
+                    <h3>Chains</h3>
+                </div>
+            </a>
+
+            <a href="https://www.tanishq.co.in/shop/bracelets?lang=en_IN" class="collection-card">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=500" alt="Bracelets">
+                </div>
+                <div class="card-info">
+                    <span>Modern Luxury</span>
+                    <h3>Bracelets</h3>
+                </div>
+            </a>
+
+            <a href="https://www.tanishq.co.in/shop/bangles?lang=en_IN" class="collection-card">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=500" alt="Bangles">
+                </div>
+                <div class="card-info">
+                    <span>Heritage Art</span>
+                    <h3>Bangles</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="reel-section">
+        <h2>Styling 101 With Diamonds</h2>
+        <div class="reel-container">
+            <div class="reel-card">
+                <video autoplay muted loop playsinline>
+                    <source src="https://cdn1.fireworktv.com/medias/2024/12/20/1734679771-iwgzlfdj/watermarked/720/Diamondsareallyouneedtounleashthatmaincharacterenergy.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="reel-card"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400" style="width:100%;height:100%;object-fit:cover;"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-col">
+            <h4>Useful Links</h4>
+            <ul><li>Delivery Information</li><li>International Shipping</li><li>Payment Options</li></ul>
+        </div>
+        <div class="footer-col">
+            <h4>Information</h4>
+            <ul><li>About Tanishq</li><li>Offers & Contest</li><li>Help & FAQs</li></ul>
+        </div>
+        <div class="footer-col">
+            <h4>Download Our App</h4>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" style="width: 100px; background:white; padding:5px;">
+        </div>
+    </footer>
+
+    <script>
+        // --- 1 SECOND CAROUSEL ANIMATION ---
+        const grid = document.getElementById('collectionGrid');
+        const cards = document.querySelectorAll('.collection-card');
+        let index = 0;
+
+        function rotateCollection() {
+            // Remove highlight from previous card
+            cards.forEach(c => c.classList.remove('rotating-active'));
+            
+            // Add highlight and scroll to current card
+            cards[index].classList.add('rotating-active');
+            
+            // Calculate scroll position
+            const cardWidth = cards[0].offsetWidth + 20; // card + gap
+            grid.scrollTo({
+                left: cardWidth * index,
+                behavior: 'smooth'
+            });
+
+            index = (index + 1) % cards.length;
+        }
+
+        // Trigger rotation every 1.5 seconds for a premium feel
+        setInterval(rotateCollection, 1500);
+    </script>
+</body>
+</html>

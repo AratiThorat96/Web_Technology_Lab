@@ -1,0 +1,249 @@
+:root {
+    --maroon: #83272d;
+    --gold: #c49a6c;
+    --light-gold: #e5c9a5;
+    --cream: #fdfaf6;
+    --dark: #1a1a1a;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--cream);
+    color: var(--dark);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Luxury Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-bar {
+    background: var(--maroon);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(196, 154, 108, 0.2);
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--maroon);
+    letter-spacing: 6px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Video Hero Section */
+.hero-video-container {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* Darkens video to make text pop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    color: white;
+    max-width: 800px;
+}
+
+.sub-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--light-gold);
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    margin: 15px 0;
+    letter-spacing: 4px;
+}
+
+.hero-btns {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 15px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn:hover {
+    background: var(--maroon);
+    border-color: var(--maroon);
+}
+
+/* Trending Products */
+.trending {
+    padding: 80px 8%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--maroon);
+}
+
+.product-scroll {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.product-item {
+    min-width: 300px;
+    text-align: center;
+}
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    margin-bottom: 15px;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.quick-view {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background: rgba(131, 39, 45, 0.9);
+    color: white;
+    padding: 15px 0;
+    transition: 0.4s;
+}
+
+.product-item:hover .quick-view {
+    bottom: 0;
+}
+
+.product-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Lifestyle Split Section */
+.lifestyle {
+    display: flex;
+    align-items: center;
+    background: #fff;
+}
+
+.lifestyle-text {
+    flex: 1;
+    padding: 10%;
+}
+
+.lifestyle-text h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.lifestyle-img {
+    flex: 1;
+    height: 600px;
+}
+
+.lifestyle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
