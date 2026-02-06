@@ -1,0 +1,51 @@
+/* External CSS: Minimalist Theme */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif; /* Elegant serif font */
+    margin: 0;
+    background-color: #fafafa;
+    color: #2d3436;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2d3436;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.footer-bottom {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
